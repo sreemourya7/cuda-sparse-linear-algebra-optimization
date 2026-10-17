@@ -43,17 +43,20 @@ Each stage will follow the same performance-engineering cycle:
 ### Completed
 
 - [x] Documented sparse-computation foundations
-- [x] Selected and analyzed the CSR storage format
-- [x] Implemented dense-to-CSR and CSR-to-dense conversion
-- [x] Implemented CSR structural validation
-- [x] Implemented and validated a CPU CSR SpMV reference
+- [x] Implemented and validated the CSR storage format
+- [x] Implemented a CPU CSR SpMV reference
 - [x] Implemented a one-thread-per-row CUDA CSR SpMV kernel
 - [x] Added CUDA memory management and runtime error checking
-- [x] Verified that GPU, CPU, and manually calculated results match
-- [x] Documented reproducible build procedures and results
+- [x] Built a deterministic large-matrix benchmark
+- [x] Added CUDA-event kernel timing
+- [x] Benchmarked four nonzero-per-row configurations
+- [x] Verified every GPU result against the CPU reference
+- [x] Identified row-length-dependent throughput behavior
 
-### Next — CUDA CSR SpMV Benchmarking
+### Current Baseline
 
-The next stage will scale the baseline to larger matrices and measure performance across different dimensions, sparsity levels, and row-length distributions. These measurements will establish the bottlenecks that motivate the first GPU optimization.
+The highest measured baseline throughput on the NVIDIA GeForce GTX 1650 is:
 
-After the SpMV baseline is characterized, the project will progress to CSR SpMM.
+```text
+6.541 GNNZ/s
+13.082 GFLOP/s

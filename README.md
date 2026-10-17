@@ -1,8 +1,19 @@
 # CUDA Sparse Linear Algebra Optimization
 
-A correctness-first study of CSR sparse matrix operations, CUDA kernel mapping, workload-aware SpMM optimization, cuSPARSE comparison, and Nsight Compute profiling.
+This project is the next step after my work on dense FP32 GEMM. Dense GEMM multiplies matrices in which nearly every value is stored and used. That makes the computation regular: the work can be divided into predictable tiles, and data can be reused efficiently.
 
-This repository develops sparse GPU kernels incrementally—from CSR representation and CPU references to optimized CUDA execution and profiler-backed performance analysis.
+Sparse matrices are different because most of their entries are 0s. Instead of storing and multiplying those zeros, this project uses the CSR format to store only the nonzero values and their locations. The main matrix–matrix operation studied here is called SpMM: multiplying a sparse matrix by a dense matrix.
+
+Moving from dense GEMM to sparse SpMM changes the optimization problem:
+
+- Less memory and computation are needed because zeros are skipped.
+- Rows may contain different numbers of nonzero values, creating uneven work.
+- Column indices must be loaded before accessing the dense matrix.
+- Memory accesses become less regular and harder to reuse.
+- Kernel performance depends on both the sparsity pattern and the output width.
+- Optimization strategies that work well for dense GEMM do not transfer directly.
+
+This repository explores that transition step by step, from CSR representation and CPU correctness references to CUDA SpMV and SpMM kernels, workload-aware optimization, cuSPARSE comparison and Nsight Compute profiling.
 
 ## Project Highlights
 
@@ -20,7 +31,7 @@ This repository develops sparse GPU kernels incrementally—from CSR representat
 
 Test system:
 
-- GPU: NVIDIA GeForce GTX 1650
+- GPU: NVIDIA GeForce GTX 1650 (I wanted to test on an older version first and then update with a flagship GPU like RTX 5090 later to get a nice comparision both in terms of performance and architecture wise)
 - Compute capability: 7.5
 - Sparse matrix dimensions: 8192 × 8192
 - Data type: FP32

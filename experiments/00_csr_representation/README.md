@@ -2,7 +2,7 @@
 
 ## Objective
 
-Implement and validate the Compressed Sparse Row (CSR) format before developing CUDA sparse matrix kernels.
+Here our Objective is to implement and validate the Compressed Sparse Row (CSR) format before developing CUDA sparse matrix kernels.
 
 This experiment establishes the data representation that will be reused by the CSR SpMV and SpMM implementations.
 

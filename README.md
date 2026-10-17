@@ -45,18 +45,26 @@ Each stage will follow the same performance-engineering cycle:
 - [x] Documented sparse-computation foundations
 - [x] Implemented and validated the CSR storage format
 - [x] Implemented CPU and CUDA CSR SpMV
-- [x] Built and executed a large-matrix SpMV benchmark
-- [x] Benchmarked multiple nonzero-per-row configurations
+- [x] Benchmarked CUDA CSR SpMV across multiple row lengths
 - [x] Implemented a CPU CSR SpMM reference
-- [x] Implemented a dense GEMM correctness reference
 - [x] Implemented a two-dimensional CUDA CSR SpMM baseline
-- [x] Verified CUDA SpMM against CPU and manual results
-- [x] Documented reproducible build procedures and results
+- [x] Benchmarked 12 CSR SpMM workload configurations
+- [x] Studied the effects of dense width and sparse row length
+- [x] Verified every GPU result against a CPU reference
+- [x] Documented reproducible methodology and results
 
-### Measured SpMV Baseline
+### Best Measured Baselines
 
-The highest measured SpMV baseline throughput on the NVIDIA GeForce GTX 1650 is:
+- CSR SpMV: 6.541 GNNZ/s and 13.082 GFLOP/s
+- CSR SpMM: 122.761 GFLOP/s
 
-```text
-6.541 GNNZ/s
-13.082 GFLOP/s
+The best SpMM result used:
+
+- Matrix dimensions: \(8192 \times 8192\)
+- Nonzeros per row: 128
+- Dense width: 32
+- Average kernel time: 0.546663 ms
+
+### Next — Profile-Guided CSR SpMM Optimization
+
+The next experiment will implement a controlled optimization targeting output-column utilization and repeated CSR traversal. Baseline and optimized kernels will be compared using identical workloads.

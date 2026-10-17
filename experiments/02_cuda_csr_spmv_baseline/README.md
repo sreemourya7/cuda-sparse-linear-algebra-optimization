@@ -2,7 +2,7 @@
 
 ## Objective
 
-Implement the first CUDA sparse matrix kernel using the CSR representation developed in Experiment 00 and the CPU SpMV reference developed in Experiment 01.
+Here our Objective is to implement the 1st CUDA sparse matrix kernel using the CSR representation developed in Experiment 00 and the CPU SpMV reference developed in Experiment 01.
 
 The initial kernel prioritizes correctness and simplicity. Performance optimization will begin only after the GPU result matches the CPU reference.
 

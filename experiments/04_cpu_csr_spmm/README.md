@@ -2,7 +2,7 @@
 
 ## Objective
 
-Implement a correct CPU reference for sparse matrix–dense matrix multiplication using CSR storage.
+Here our Objective is to implement a correct CPU reference for sparse matrix–dense matrix multiplication using CSR storage.
 
 This implementation will provide the correctness baseline for all future CUDA CSR SpMM kernels.
 

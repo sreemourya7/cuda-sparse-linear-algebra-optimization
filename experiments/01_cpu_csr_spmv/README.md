@@ -2,7 +2,7 @@
 
 ## Objective
 
-Implement a correct CPU reference for sparse matrix–vector multiplication using the CSR representation validated in Experiment 00.
+Here our Objective is to implement a correct CPU reference for sparse matrix–vector multiplication using the CSR representation validated in Experiment 00.
 
 This implementation will become the correctness baseline for future CUDA SpMV kernels.
 

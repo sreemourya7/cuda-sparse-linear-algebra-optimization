@@ -2,7 +2,7 @@
 
 ## Objective
 
-Implement and validate the first CUDA kernel for CSR sparse matrix–dense matrix multiplication.
+Here our Objective is to implement and validate the first CUDA kernel for CSR sparse matrix–dense matrix multiplication.
 
 The CPU CSR SpMM implementation from Experiment 04 will serve as the correctness reference.
 
@@ -36,7 +36,7 @@ The baseline uses:
 
 ```text
 One CUDA thread → One output element C[row, column]
-
+```
 ## Status :
 
 - [x] Implemented the CUDA CSR SpMM kernel

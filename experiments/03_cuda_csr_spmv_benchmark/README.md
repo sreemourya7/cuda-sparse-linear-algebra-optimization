@@ -2,7 +2,7 @@
 
 ## Objective
 
-Measure the performance of the one-thread-per-row CUDA CSR SpMV kernel using larger synthetic sparse matrices.
+Here our Objective is to measure the performance of the one-thread-per-row CUDA CSR SpMV kernel using larger synthetic sparse matrices.
 
 This experiment establishes a repeatable performance baseline before introducing load-balancing or warp-cooperative optimizations.
 

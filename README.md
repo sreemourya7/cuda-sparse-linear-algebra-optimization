@@ -43,28 +43,27 @@ Each stage will follow the same performance-engineering cycle:
 ### Completed
 
 - [x] Documented sparse-computation foundations
-- [x] Implemented and validated the CSR storage format
+- [x] Implemented and validated CSR storage
 - [x] Implemented CPU and CUDA CSR SpMV
-- [x] Benchmarked CUDA CSR SpMV across multiple row lengths
-- [x] Implemented a CPU CSR SpMM reference
-- [x] Implemented a two-dimensional CUDA CSR SpMM baseline
-- [x] Benchmarked 12 CSR SpMM workload configurations
-- [x] Studied the effects of dense width and sparse row length
-- [x] Verified every GPU result against a CPU reference
-- [x] Documented reproducible methodology and results
+- [x] Benchmarked CSR SpMV across multiple row lengths
+- [x] Implemented CPU and CUDA CSR SpMM baselines
+- [x] Benchmarked 12 CSR SpMM workloads
+- [x] Implemented width-aware CSR SpMM dispatch
+- [x] Eliminated narrow-width thread underutilization
+- [x] Implemented a scalar warp-aligned mapping
+- [x] Implemented warp broadcast and register reuse
+- [x] Improved all 12 tested SpMM workloads
+- [x] Verified every result against CPU references
 
-### Best Measured Baselines
+### Best Measured Results
 
 - CSR SpMV: 6.541 GNNZ/s and 13.082 GFLOP/s
-- CSR SpMM: 122.761 GFLOP/s
+- Baseline CSR SpMM: 123.007 GFLOP/s
+- Optimized CSR SpMM: 163.301 GFLOP/s
+- Maximum CSR SpMM speedup: 1.897×
 
-The best SpMM result used:
+The largest speedup reduced kernel time from 5.303499 ms to 2.795092 ms for 128 nonzeros per row and \(N=128\).
 
-- Matrix dimensions: \(8192 \times 8192\)
-- Nonzeros per row: 128
-- Dense width: 32
-- Average kernel time: 0.546663 ms
+### Next — cuSPARSE and Nsight Compute Comparison
 
-### Next — Profile-Guided CSR SpMM Optimization
-
-The next experiment will implement a controlled optimization targeting output-column utilization and repeated CSR traversal. Baseline and optimized kernels will be compared using identical workloads.
+The final core experiment will compare the custom baseline and optimized kernels against NVIDIA cuSPARSE and use Nsight Compute metrics to explain the observed performance behavior.

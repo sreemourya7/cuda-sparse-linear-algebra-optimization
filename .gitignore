@@ -23,3 +23,7 @@ bin/
 # Operating system files
 .DS_Store
 Thumbs.db
+
+# NVIDIA Nsight Compute reports
+*.ncu-rep
+*.ncu-repz

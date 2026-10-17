@@ -40,16 +40,17 @@ Each stage will follow the same performance-engineering cycle:
 
 ## Current Status
 
-
-### Phase 1 — Sparse Computation Foundations
+### Completed — Sparse Foundations and CSR Representation
 
 - [x] Analyzed the execution differences between dense and sparse GEMM
-- [x] Selected CSR as the initial storage format
-- [x] Defined the progression from SpMV to SpMM
-- [x] Identified key optimization challenges: irregular memory access, indexing overhead, and workload imbalance
-- [x] Established the correctness, benchmarking, profiling, and cuSPARSE comparison methodology
-- [ ] Implement CSR matrix construction and validation
-- [ ] Build the CPU reference implementation
-- [ ] Implement the first CUDA CSR kernel
+- [x] Selected CSR as the initial sparse storage format
+- [x] Documented SpMV, SpMM, and SpGEMM characteristics
+- [x] Implemented dense-to-CSR conversion
+- [x] Implemented CSR-to-dense reconstruction
+- [x] Implemented CSR structural validation
+- [x] Verified the CSR representation using a known test matrix
+- [x] Recorded reproducible build instructions and results
 
-The project is currently transitioning from architectural analysis to baseline implementation.
+### Next — CPU CSR SpMV Baseline
+
+The next experiment will implement a CPU reference for sparse matrix–vector multiplication. This will provide a correctness baseline for the first CUDA sparse kernel.

@@ -269,7 +269,7 @@ Profile:
 
 On Windows, profiling hardware counters may require an administrator command prompt.
 
-## Limitations
+<!-- ## Limitations
 
 The benchmark matrices use a controlled uniform number of nonzeros per row.
 
@@ -308,6 +308,5 @@ The core CSR SpMV and SpMM learning path is complete:
 - [x] Workload-aware optimization
 - [x] cuSPARSE comparison
 - [x] Nsight Compute profiling
-- [x] Profiler-backed performance explanation
+- [x] Profiler-backed performance explanation -->
 
-The repository now demonstrates the full workflow from correctness to measurement, optimization, library comparison, and hardware-level analysis.

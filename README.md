@@ -44,13 +44,16 @@ Each stage will follow the same performance-engineering cycle:
 
 - [x] Documented sparse-computation foundations
 - [x] Selected and analyzed the CSR storage format
-- [x] Implemented dense-to-CSR conversion
-- [x] Implemented CSR-to-dense reconstruction
+- [x] Implemented dense-to-CSR and CSR-to-dense conversion
 - [x] Implemented CSR structural validation
-- [x] Implemented a CPU CSR SpMV reference
-- [x] Compared CSR SpMV against a dense reference
-- [x] Verified all baseline results using known test data
+- [x] Implemented and validated a CPU CSR SpMV reference
+- [x] Implemented a one-thread-per-row CUDA CSR SpMV kernel
+- [x] Added CUDA memory management and runtime error checking
+- [x] Verified that GPU, CPU, and manually calculated results match
+- [x] Documented reproducible build procedures and results
 
-### Next — CUDA CSR SpMV Baseline
+### Next — CUDA CSR SpMV Benchmarking
 
-The next experiment will implement a simple CUDA CSR SpMV kernel using one GPU thread per matrix row. Correctness will be established before benchmarking or optimization.
+The next stage will scale the baseline to larger matrices and measure performance across different dimensions, sparsity levels, and row-length distributions. These measurements will establish the bottlenecks that motivate the first GPU optimization.
+
+After the SpMV baseline is characterized, the project will progress to CSR SpMM.

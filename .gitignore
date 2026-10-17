@@ -1,0 +1,25 @@
+# Build directories
+build/
+bin/
+
+# Compiled files
+*.exe
+*.o
+*.obj
+*.dll
+*.lib
+*.exp
+*.pdb
+*.ilk
+
+# CUDA and profiling outputs
+*.ncu-rep
+*.nsys-rep
+*.sqlite
+
+# Visual Studio
+.vs/
+
+# Operating system files
+.DS_Store
+Thumbs.db

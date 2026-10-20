@@ -6,7 +6,7 @@ Here our Objective is to implement and validate the Compressed Sparse Row (CSR) 
 
 This experiment establishes the data representation that will be reused by the CSR SpMV and SpMM implementations.
 
-## Dense Matrix Example
+## Dense Matrix Example :
 
 Consider the following \(4 \times 5\) matrix:
 

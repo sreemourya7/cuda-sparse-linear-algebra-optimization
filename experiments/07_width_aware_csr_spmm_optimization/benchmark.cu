@@ -13,7 +13,6 @@ void checkCuda(
     cudaError_t error,
     const char *operation,
     int line)
-
 {
     if (error != cudaSuccess)
     {
